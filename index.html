@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfólio de Bráulio Daniel, estudante de Desenvolvimento de Sistemas."
+    />
+    <title>Bráulio Daniel — Desenvolvedor em formação</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="topbar__inner">
+        <a class="logo" href="#inicio" aria-label="Página inicial de Bráulio Daniel">
+          <span class="logo__mark">BD</span>
+          <span class="logo__name">braulio<span>_</span>daniel</span>
+        </a>
+
+        <button
+          class="menu-button"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="main-navigation"
+        >
+          <span></span><span></span>
+        </button>
+
+        <nav class="main-navigation" id="main-navigation" aria-label="Navegação principal">
+          <a class="nav-item is-active" href="#inicio"><span>00</span> início</a>
+          <a class="nav-item" href="#sobre"><span>01</span> sobre</a>
+          <a class="nav-item" href="#habilidades"><span>02</span> habilidades</a>
+          <a class="nav-item" href="#formacao"><span>03</span> formação</a>
+          <a class="nav-item nav-item--contact" href="#contato">fale comigo <b>↗</b></a>
+        </nav>
+
+        <span class="availability"><i></i> curvelo / mg</span>
+      </div>
+    </header>
+
+    <main id="conteudo" aria-label="Conteúdo navegável horizontalmente">
+      <section class="hero section-wrap" id="inicio" aria-labelledby="hero-title">
+        <div class="hero__side-label">PORTFOLIO / BRÁULIO DANIEL</div>
+        <div class="hero__content reveal">
+          <p class="overline"><span class="overline__line"></span> formação e experiências práticas</p>
+          <h1 id="hero-title">Olá sou o<br /><em>Bráulio.</em></h1>
+          <div class="hero__actions">
+            <a class="button button--solid" href="#formacao">Conheça minha formação <span>↘</span></a>
+            <a class="button button--outline" href="#contato">Entre em contato <span>↗</span></a>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal reveal--late" aria-label="Composição geométrica com as iniciais de Bráulio Daniel">
+          <div class="visual-grid"></div>
+          <div class="visual-orbit visual-orbit--outer"></div>
+          <div class="visual-orbit visual-orbit--inner"></div>
+          <div class="visual-cross visual-cross--one"></div>
+          <div class="visual-cross visual-cross--two"></div>
+          <div class="initials">BD<span>.</span></div>
+          <div class="visual-caption"><span>01</span><span>design &amp; code</span></div>
+          <div class="visual-coordinate">-18.7555° / -44.4284°</div>
+        </div>
+
+        <div class="hero__bottom">
+          <p><span>navegue pelas abas</span><i></i></p>
+          <p class="hero__location">CURVELO <span>—</span> BRASIL</p>
+        </div>
+      </section>
+
+      <section class="manifesto section-wrap" id="sobre" aria-labelledby="about-title">
+        <div class="section-index reveal"><span>01</span><i></i><span>sobre mim</span></div>
+        <div class="manifesto__heading reveal">
+          <p class="overline">um pouco da minha perspectiva</p>
+          <h2 id="about-title">Entre a lógica<br />e a <em>imaginação.</em></h2>
+        </div>
+        <div class="manifesto__body reveal reveal--late">
+          <p class="manifesto__lead">Com o tempo, a área de tecnologia se tornou algo interessante para mim e uma forma de aprender coisas novas.</p>
+          <p>Nasci em Curvelo, Minas Gerais, e estudo na Escola Irmã Raimunda Marques. Atualmente estou cursando Técnico em Desenvolvimento de Sistemas.</p>
+          <p>Atualmente curso Técnico em Desenvolvimento de Sistemas e gosto de explorar novas ferramentas. Também estou cursando no SENAI a formação de Ferramentas digitais e plataformas de IA para o agro, que aborda possibilidades da tecnologia no agronegócio. Tenho conhecimento básico em impressão 3D, mas sei trabalhar com diferentes recursos e possibilidades da área.</p>
+          <p>Também já participei, junto com minha turma, de um projeto da Liga STEAM, experiência que ampliou meu interesse por tecnologia e por atividades práticas.</p>
+          <p>Apesar desse interesse, meu principal foco profissional é me preparar para atuar como <strong>operador de máquinas agrícolas</strong>.</p>
+          <div class="signature"><span>Bráulio Daniel</span><small>estudante de desenvolvimento de sistemas</small></div>
+        </div>
+        <div class="manifesto__stamp" aria-hidden="true">curioso<br /><span>por natureza</span></div>
+      </section>
+
+      <section class="skills section-wrap" id="habilidades" aria-labelledby="skills-title">
+        <div class="section-index reveal"><span>02</span><i></i><span>habilidades</span></div>
+        <div class="skills__heading reveal">
+          <p class="overline">o que estou desenvolvendo</p>
+          <h2 id="skills-title">Ferramentas<br /><em>para criar.</em></h2>
+        </div>
+        <div class="skills__list reveal reveal--late">
+          <article class="skill-card">
+            <div class="skill-card__top"><span class="skill-card__icon" aria-hidden="true">&lt;/&gt;</span><span class="skill-status">em desenvolvimento</span></div>
+            <h3>Desenvolvimento</h3>
+            <p>Fundamentos para construir páginas e soluções web.</p>
+            <ul class="skill-tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Lógica de programação</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card__top"><span class="skill-card__icon" aria-hidden="true">⌘</span><span class="skill-status">em aprendizado</span></div>
+            <h3>Ferramentas</h3>
+            <p>Recursos que apoiam organização, prototipação e código.</p>
+            <ul class="skill-tags"><li>Visual Studio Code</li><li>Git</li><li>Figma</li></ul>
+          </article>
+          <article class="skill-card">
+            <div class="skill-card__top"><span class="skill-card__icon" aria-hidden="true">◌</span><span class="skill-status">conhecimento inicial</span></div>
+            <h3>Conhecimentos</h3>
+            <p>Temas que fazem parte da minha formação técnica.</p>
+            <ul class="skill-tags"><li>Banco de dados</li><li>SQL</li><li>Design responsivo</li><li>POO</li><li>Impressão 3D</li></ul>
+          </article>
+          <article class="skill-card skill-card--senai">
+            <div class="skill-card__top"><span class="skill-card__icon" aria-hidden="true">✦</span><span class="skill-status">em andamento</span></div>
+            <div class="skill-card__senai-copy"><p class="skill-card__eyebrow">formação complementar / SENAI</p><h3>Ferramentas digitais e plataformas de IA para o agro</h3><p>Curso ainda em andamento sobre ferramentas digitais e possibilidades de uso da inteligência artificial no agronegócio.</p></div>
+            <ul class="skill-tags"><li>Ferramentas digitais</li><li>Plataformas de IA</li><li>Agronegócio</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="education section-wrap" id="formacao" aria-labelledby="education-title">
+        <div class="section-index reveal"><span>03</span><i></i><span>formação</span></div>
+        <div class="education__intro reveal">
+          <p class="overline">a base continua crescendo</p>
+          <h2 id="education-title">Em <em>construção.</em></h2>
+          <p>Conhecimento é um projeto sem versão final. Esta é a etapa atual da minha jornada.</p>
+          <div class="course-gallery" aria-label="Imagens relacionadas ao curso do SENAI">
+            <figure class="course-image course-image--wide"><img src="assets/agro-ai-field.svg" alt="Campo inteligente monitorado por drone e inteligência artificial" /><figcaption>SENAI / agro + IA</figcaption></figure>
+            <figure class="course-image course-image--small"><img src="assets/agro-digital-platform.svg" alt="Plataforma digital com indicadores de um cultivo agrícola" /><figcaption>ferramentas digitais</figcaption></figure>
+          </div>
+        </div>
+        <div class="education__timeline reveal reveal--late">
+          <article class="education-item education-item--current">
+            <time datetime="2025">2025 — agora</time>
+            <div class="education-item__marker"><span></span></div>
+            <div><p class="education-item__tag">formação técnica</p><h3>Técnico em Desenvolvimento de Sistemas</h3><p class="education-item__place">Escola Irmã Raimunda Marques</p><p class="education-item__description">Formação em desenvolvimento web, banco de dados, lógica de programação, engenharia de software e projetos práticos.</p></div>
+            <span class="education-item__status">em andamento</span>
+          </article>
+          <article class="education-item education-item--senai education-item--precision">
+            <time datetime="2026">2026 &mdash; agora</time>
+            <div class="education-item__marker"><span></span></div>
+            <div><p class="education-item__tag">forma&ccedil;&atilde;o complementar</p><h3>SENAI &ndash; Agricultura de Precis&atilde;o na Aplica&ccedil;&atilde;o de Defensivos Agr&iacute;colas</h3><p class="education-item__place">SENAI</p><p class="education-item__description">Forma&ccedil;&atilde;o voltada ao uso preciso e respons&aacute;vel de tecnologias na aplica&ccedil;&atilde;o de defensivos agr&iacute;colas.</p></div>
+            <figure class="course-image education-item__cover"><img src="assets/agricultura-precisao-defensivos.svg" alt="Aplica&ccedil;&atilde;o precisa de defensivos agr&iacute;colas em um campo monitorado por dados" /><figcaption>SENAI / aplica&ccedil;&atilde;o precisa</figcaption></figure>
+            <span class="education-item__status">em andamento</span>
+          </article>
+          <article class="education-item education-item--senai">
+            <time datetime="2026">2026 — agora</time>
+            <div class="education-item__marker"><span></span></div>
+            <div><p class="education-item__tag">formação complementar</p><h3>Ferramentas digitais e plataformas de IA para o agro</h3><p class="education-item__place">SENAI</p><p class="education-item__description">Ainda estou cursando esta formação, que aborda ferramentas digitais e plataformas de inteligência artificial aplicadas ao agronegócio.</p></div>
+            <span class="education-item__status">em andamento</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="contact section-wrap" id="contato" aria-label="Dados de contato">
+        <div class="contact__content reveal" aria-label="Meios de contato">
+          <h2 id="contact-title">Vamos conversar?</h2>
+          <p>Tem uma ideia, oportunidade ou quer trocar experiências? Estou à disposição para conversar.</p>
+          <div class="contact__links">
+            <a href="mailto:brauliodaniel200919@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio"><span>e-mail</span> brauliodaniel200919@gmail.com <b>↗</b></a>
+            <a href="https://wa.me/5531997226757" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span> (31) 99722-6757 <b>↗</b></a>
+          </div>
+        </div>
+        <form class="contact-form reveal reveal--late" id="contact-form" aria-label="Formulário de contato">
+          <label for="name">seu nome<input id="name" name="name" type="text" placeholder="Como posso te chamar?" required /></label>
+          <label for="email">seu e-mail<input id="email" name="email" type="email" placeholder="voce@email.com" required /></label>
+          <label for="message">sua mensagem<textarea id="message" name="message" rows="4" placeholder="Escreva sua ideia..." required></textarea></label>
+          <button class="button button--outline" type="submit">enviar mensagem <span>↗</span></button>
+          <p class="form-feedback" role="status" aria-live="polite">Ao enviar, seu aplicativo de e-mail será aberto com a mensagem preenchida.</p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer section-wrap">
+      <a class="logo" href="#inicio"><span class="logo__mark">BD</span><span class="logo__name">braulio<span>_</span>daniel</span></a>
+      <p>feito com intenção <span>✦</span> e código</p>
+      <p>© <span id="current-year"></span> <span class="footer-fake">portfólio em evolução</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

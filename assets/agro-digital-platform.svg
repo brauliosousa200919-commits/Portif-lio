@@ -1,0 +1,64 @@
+<svg width="720" height="460" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="background" x1="85" y1="32" x2="655" y2="428" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#263943"/>
+      <stop offset="0.58" stop-color="#17242C"/>
+      <stop offset="1" stop-color="#10161B"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="130" y1="101" x2="587" y2="348" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A3B45"/>
+      <stop offset="1" stop-color="#19242C"/>
+    </linearGradient>
+    <linearGradient id="growth" x1="181" y1="315" x2="559" y2="189" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#91D5B1"/>
+      <stop offset="1" stop-color="#9583D7"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#91D5B1" stroke-opacity="0.12"/>
+    </pattern>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="720" height="460" rx="18" fill="url(#background)"/>
+  <rect x="30" y="30" width="660" height="400" rx="12" fill="url(#grid)"/>
+
+  <rect x="83" y="88" width="554" height="288" rx="14" fill="url(#panel)" stroke="#F9F4E8" stroke-opacity="0.16"/>
+  <path d="M83 137H637" stroke="#F9F4E8" stroke-opacity="0.13"/>
+  <circle cx="111" cy="112" r="5" fill="#F09A5A"/>
+  <circle cx="128" cy="112" r="5" fill="#91D5B1"/>
+  <circle cx="145" cy="112" r="5" fill="#9583D7"/>
+  <text x="174" y="117" fill="#F9F4E8" fill-opacity="0.75" font-family="monospace" font-size="10" letter-spacing="1.5">AGRO DIGITAL PLATFORM</text>
+
+  <rect x="111" y="164" width="142" height="79" rx="8" fill="#10161B" fill-opacity="0.58" stroke="#91D5B1" stroke-opacity="0.35"/>
+  <text x="126" y="184" fill="#7F8B8E" font-family="monospace" font-size="8" letter-spacing="1.2">SOIL MOISTURE</text>
+  <text x="126" y="219" fill="#91D5B1" font-family="monospace" font-size="27">68%</text>
+  <path d="M210 215C219 207 229 207 239 197" stroke="#FFC17D" stroke-width="2"/>
+  <circle cx="239" cy="197" r="4" fill="#FFC17D" filter="url(#glow)"/>
+
+  <rect x="269" y="164" width="142" height="79" rx="8" fill="#10161B" fill-opacity="0.58" stroke="#9583D7" stroke-opacity="0.45"/>
+  <text x="284" y="184" fill="#7F8B8E" font-family="monospace" font-size="8" letter-spacing="1.2">CROP HEALTH</text>
+  <text x="284" y="219" fill="#FFC17D" font-family="monospace" font-size="27">92%</text>
+  <path d="M367 211L378 199L389 204L399 187" stroke="#91D5B1" stroke-width="2"/>
+  <circle cx="399" cy="187" r="4" fill="#91D5B1" filter="url(#glow)"/>
+
+  <rect x="427" y="164" width="165" height="79" rx="8" fill="#10161B" fill-opacity="0.58" stroke="#F09A5A" stroke-opacity="0.42"/>
+  <text x="442" y="184" fill="#7F8B8E" font-family="monospace" font-size="8" letter-spacing="1.2">ACTIVE AREAS</text>
+  <text x="442" y="219" fill="#F9F4E8" font-family="monospace" font-size="27">24</text>
+  <text x="497" y="217" fill="#F09A5A" font-family="monospace" font-size="9" letter-spacing="1">TALHÕES</text>
+
+  <rect x="111" y="264" width="481" height="82" rx="8" fill="#10161B" fill-opacity="0.58" stroke="#F9F4E8" stroke-opacity="0.13"/>
+  <text x="126" y="285" fill="#7F8B8E" font-family="monospace" font-size="8" letter-spacing="1.2">CULTIVATION OVERVIEW</text>
+  <path d="M130 326C170 312 190 318 225 297C260 276 282 313 319 294C355 276 377 305 409 285C447 262 471 298 504 280C532 264 556 274 577 258" stroke="url(#growth)" stroke-width="3"/>
+  <path d="M130 326H577" stroke="#F9F4E8" stroke-opacity="0.12"/>
+  <circle cx="504" cy="280" r="5" fill="#FFC17D" filter="url(#glow)"/>
+
+  <g font-family="monospace">
+    <text x="56" y="405" fill="#91D5B1" font-size="10" letter-spacing="1.5">FERRAMENTAS DIGITAIS</text>
+    <text x="557" y="405" fill="#FFC17D" font-size="9" letter-spacing="1.3">03 / 03</text>
+  </g>
+
+  <rect x="30.5" y="30.5" width="659" height="399" rx="11.5" stroke="#F9F4E8" stroke-opacity="0.15"/>
+</svg>

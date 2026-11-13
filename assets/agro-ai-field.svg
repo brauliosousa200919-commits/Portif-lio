@@ -1,0 +1,62 @@
+<svg width="720" height="460" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="background" x1="52" y1="24" x2="665" y2="438" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2A3B45"/>
+      <stop offset="0.58" stop-color="#18262E"/>
+      <stop offset="1" stop-color="#10161B"/>
+    </linearGradient>
+    <linearGradient id="terrain" x1="91" y1="398" x2="620" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#91D5B1" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#9583D7" stop-opacity="0.3"/>
+    </linearGradient>
+    <pattern id="scan-grid" width="34" height="34" patternUnits="userSpaceOnUse">
+      <path d="M34 0H0V34" stroke="#91D5B1" stroke-opacity="0.15"/>
+    </pattern>
+    <filter id="soft-glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <rect width="720" height="460" rx="18" fill="url(#background)"/>
+  <rect x="30" y="30" width="660" height="400" rx="12" fill="url(#scan-grid)"/>
+
+  <path d="M42 412C142 333 207 283 286 189C373 85 493 68 677 46V430H42V412Z" fill="url(#terrain)"/>
+  <path d="M45 414C154 331 214 281 294 184C378 83 501 70 679 47" stroke="#91D5B1" stroke-opacity="0.38" stroke-width="2"/>
+  <path d="M91 430C181 345 240 296 316 203C397 104 509 94 688 75" stroke="#91D5B1" stroke-opacity="0.22" stroke-width="22"/>
+  <path d="M171 430C251 354 300 304 363 226C431 141 525 122 696 104" stroke="#9583D7" stroke-opacity="0.25" stroke-width="22"/>
+  <path d="M254 430C323 363 357 323 411 252C467 178 551 154 703 139" stroke="#91D5B1" stroke-opacity="0.22" stroke-width="22"/>
+  <path d="M340 430C396 374 428 337 468 278C513 211 581 185 710 173" stroke="#9583D7" stroke-opacity="0.2" stroke-width="22"/>
+
+  <g opacity="0.78">
+    <path d="M94 390L295 187M175 413L362 225M260 427L417 252" stroke="#FFC17D" stroke-opacity="0.7" stroke-width="1" stroke-dasharray="4 8"/>
+    <circle cx="295" cy="187" r="5" fill="#91D5B1" filter="url(#soft-glow)"/>
+    <circle cx="362" cy="225" r="5" fill="#91D5B1" filter="url(#soft-glow)"/>
+    <circle cx="417" cy="252" r="5" fill="#91D5B1" filter="url(#soft-glow)"/>
+  </g>
+
+  <g transform="translate(302 112)">
+    <circle cx="58" cy="55" r="23" fill="#202F39" stroke="#91D5B1" stroke-width="2"/>
+    <circle cx="178" cy="55" r="23" fill="#202F39" stroke="#91D5B1" stroke-width="2"/>
+    <path d="M71 55H165" stroke="#FFC17D" stroke-width="5" stroke-linecap="round"/>
+    <rect x="91" y="35" width="54" height="42" rx="12" fill="#2A3B45" stroke="#FFC17D" stroke-width="2"/>
+    <path d="M118 35V18M108 18H128" stroke="#91D5B1" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="118" cy="54" r="7" fill="#F09A5A" filter="url(#soft-glow)"/>
+  </g>
+
+  <g transform="translate(60 72)">
+    <rect width="178" height="66" rx="9" fill="#10161B" fill-opacity="0.7" stroke="#91D5B1" stroke-opacity="0.45"/>
+    <circle cx="22" cy="23" r="6" fill="#91D5B1"/>
+    <text x="38" y="27" fill="#F9F4E8" font-family="monospace" font-size="10" letter-spacing="1">LIVE FIELD MAP</text>
+    <path d="M18 47H160" stroke="#2A3B45"/>
+    <path d="M18 47L52 40L81 44L113 30L160 35" stroke="#91D5B1" stroke-width="2"/>
+  </g>
+
+  <g font-family="monospace">
+    <text x="56" y="386" fill="#7F8B8E" font-size="9" letter-spacing="1.5">SENAI / AGRO + IA</text>
+    <text x="56" y="406" fill="#FFC17D" font-size="10" letter-spacing="1.4">FIELD INTELLIGENCE</text>
+    <text x="590" y="405" fill="#91D5B1" font-size="9" letter-spacing="1.3">01 / 03</text>
+  </g>
+
+  <rect x="30.5" y="30.5" width="659" height="399" rx="11.5" stroke="#F9F4E8" stroke-opacity="0.15"/>
+</svg>
