@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Instagram">
+  <defs>
+    <radialGradient id="instagram-gradient" cx="25%" cy="100%" r="120%">
+      <stop offset="0" stop-color="#ffdc80"/>
+      <stop offset=".35" stop-color="#fcaf45"/>
+      <stop offset=".62" stop-color="#f72575"/>
+      <stop offset=".84" stop-color="#c32aa3"/>
+      <stop offset="1" stop-color="#4c64d3"/>
+    </radialGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="32" fill="url(#instagram-gradient)"/>
+  <rect x="29" y="29" width="62" height="62" rx="19" fill="none" stroke="#fff" stroke-width="8"/>
+  <circle cx="60" cy="60" r="15" fill="none" stroke="#fff" stroke-width="8"/>
+  <circle cx="84" cy="36" r="5" fill="#fff"/>
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90" role="img" aria-label="Gmail">
+  <path fill="#4285f4" d="M8 17v61h22V39z"/>
+  <path fill="#34a853" d="M90 39v39h22V17z"/>
+  <path fill="#fbbc04" d="M90 17v22l22-22z"/>
+  <path fill="#ea4335" d="m8 17 52 40 52-40L90 2 60 25 30 2z"/>
+  <path fill="#c5221f" d="M8 17v10l22 17V39z"/>
+</svg>
