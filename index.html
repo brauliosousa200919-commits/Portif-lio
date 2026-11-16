@@ -19,8 +19,6 @@
 
   <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    <div class="noise" aria-hidden="true"></div>
-
     <header class="topbar">
       <div class="topbar__inner">
         <a class="logo" href="#inicio" aria-label="Página inicial de Bráulio Daniel">
@@ -46,16 +44,15 @@
           <a class="nav-item nav-item--contact" href="#contato">fale comigo <b>↗</b></a>
         </nav>
 
-        <span class="availability"><i></i> curvelo / mg</span>
       </div>
     </header>
 
     <main id="conteudo" aria-label="Conteúdo navegável horizontalmente">
       <section class="hero section-wrap" id="inicio" aria-labelledby="hero-title">
-        <div class="hero__side-label">PORTFOLIO / BRÁULIO DANIEL</div>
         <div class="hero__content reveal">
           <p class="overline"><span class="overline__line"></span> formação e experiências práticas</p>
           <h1 id="hero-title">Olá sou o<br /><em>Bráulio.</em></h1>
+          <p class="hero__intro">Sou estudante do ensino médio técnico em Desenvolvimento de Sistemas.</p>
           <div class="hero__actions">
             <a class="button button--solid" href="#formacao">Conheça minha formação <span>↘</span></a>
             <a class="button button--outline" href="#contato">Entre em contato <span>↗</span></a>
@@ -69,13 +66,6 @@
           <div class="visual-cross visual-cross--one"></div>
           <div class="visual-cross visual-cross--two"></div>
           <div class="initials">BD<span>.</span></div>
-          <div class="visual-caption"><span>01</span><span>design &amp; code</span></div>
-          <div class="visual-coordinate">-18.7555° / -44.4284°</div>
-        </div>
-
-        <div class="hero__bottom">
-          <p><span>navegue pelas abas</span><i></i></p>
-          <p class="hero__location">CURVELO <span>—</span> BRASIL</p>
         </div>
       </section>
 
@@ -87,13 +77,12 @@
         </div>
         <div class="manifesto__body reveal reveal--late">
           <p class="manifesto__lead">Com o tempo, a área de tecnologia se tornou algo interessante para mim e uma forma de aprender coisas novas.</p>
-          <p>Nasci em Curvelo, Minas Gerais, e estudo na Escola Irmã Raimunda Marques. Atualmente estou cursando Técnico em Desenvolvimento de Sistemas.</p>
-          <p>Atualmente curso Técnico em Desenvolvimento de Sistemas e gosto de explorar novas ferramentas. Também estou cursando no SENAI a formação de Ferramentas digitais e plataformas de IA para o agro, que aborda possibilidades da tecnologia no agronegócio. Tenho conhecimento básico em impressão 3D, mas sei trabalhar com diferentes recursos e possibilidades da área.</p>
+          <p>Nasci em Curvelo, Minas Gerais, e estudo na Escola Irmã Raimunda Marques, onde faço o ensino médio técnico em Desenvolvimento de Sistemas.</p>
+          <p>Também estou cursando no SENAI a formação de Ferramentas digitais e plataformas de IA para o agro, que aborda possibilidades da tecnologia no agronegócio. Tenho conhecimento básico em impressão 3D, mas sei trabalhar com diferentes recursos e possibilidades da área.</p>
           <p>Também já participei, junto com minha turma, de um projeto da Liga STEAM, experiência que ampliou meu interesse por tecnologia e por atividades práticas.</p>
           <p>Apesar desse interesse, meu principal foco profissional é me preparar para atuar como <strong>operador de máquinas agrícolas</strong>.</p>
           <div class="signature"><span>Bráulio Daniel</span><small>estudante de desenvolvimento de sistemas</small></div>
         </div>
-        <div class="manifesto__stamp" aria-hidden="true">curioso<br /><span>por natureza</span></div>
       </section>
 
       <section class="skills section-wrap" id="habilidades" aria-labelledby="skills-title">
@@ -136,8 +125,9 @@
           <h2 id="education-title">Em <em>construção.</em></h2>
           <p>Conhecimento é um projeto sem versão final. Esta é a etapa atual da minha jornada.</p>
           <div class="course-gallery" aria-label="Imagens relacionadas ao curso do SENAI">
-            <figure class="course-image course-image--wide"><img src="assets/agro-ai-field.svg" alt="Campo inteligente monitorado por drone e inteligência artificial" /><figcaption>SENAI / agro + IA</figcaption></figure>
+            <figure class="course-image course-image--wide is-active"><img src="assets/agro-ai-field.svg" alt="Campo inteligente monitorado por drone e inteligência artificial" /><figcaption>SENAI / agro + IA</figcaption></figure>
             <figure class="course-image course-image--small"><img src="assets/agro-digital-platform.svg" alt="Plataforma digital com indicadores de um cultivo agrícola" /><figcaption>ferramentas digitais</figcaption></figure>
+            <button class="course-gallery__next" type="button" aria-label="Mostrar a próxima imagem">próxima imagem <span aria-hidden="true">↗</span></button>
           </div>
         </div>
         <div class="education__timeline reveal reveal--late">
@@ -151,8 +141,10 @@
             <time datetime="2026">2026 &mdash; agora</time>
             <div class="education-item__marker"><span></span></div>
             <div><p class="education-item__tag">forma&ccedil;&atilde;o complementar</p><h3>SENAI &ndash; Agricultura de Precis&atilde;o na Aplica&ccedil;&atilde;o de Defensivos Agr&iacute;colas</h3><p class="education-item__place">SENAI</p><p class="education-item__description">Forma&ccedil;&atilde;o voltada ao uso preciso e respons&aacute;vel de tecnologias na aplica&ccedil;&atilde;o de defensivos agr&iacute;colas.</p></div>
-            <figure class="course-image education-item__cover"><img src="assets/agricultura-precisao-defensivos.svg" alt="Aplica&ccedil;&atilde;o precisa de defensivos agr&iacute;colas em um campo monitorado por dados" /><figcaption>SENAI / aplica&ccedil;&atilde;o precisa</figcaption></figure>
-            <span class="education-item__status">em andamento</span>
+            <div class="education-item__aside">
+              <span class="education-item__status">em andamento</span>
+              <figure class="course-image education-item__cover"><img src="assets/agricultura-precisao-defensivos.svg" alt="Aplica&ccedil;&atilde;o precisa de defensivos agr&iacute;colas em um campo monitorado por dados" /><figcaption>SENAI / aplica&ccedil;&atilde;o precisa</figcaption></figure>
+            </div>
           </article>
           <article class="education-item education-item--senai">
             <time datetime="2026">2026 — agora</time>
@@ -170,6 +162,7 @@
           <div class="contact__links">
             <a href="mailto:brauliodaniel200919@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio"><span>e-mail</span> brauliodaniel200919@gmail.com <b>↗</b></a>
             <a href="https://wa.me/5531997226757" target="_blank" rel="noopener noreferrer"><span>WhatsApp</span> (31) 99722-6757 <b>↗</b></a>
+            <a href="https://www.instagram.com/b.rauliosousa/" target="_blank" rel="noopener noreferrer"><span>Instagram</span> @b.rauliosousa <b>↗</b></a>
           </div>
         </div>
         <form class="contact-form reveal reveal--late" id="contact-form" aria-label="Formulário de contato">
@@ -184,8 +177,7 @@
 
     <footer class="footer section-wrap">
       <a class="logo" href="#inicio"><span class="logo__mark">BD</span><span class="logo__name">braulio<span>_</span>daniel</span></a>
-      <p>feito com intenção <span>✦</span> e código</p>
-      <p>© <span id="current-year"></span> <span class="footer-fake">portfólio em evolução</span></p>
+      <p>&copy; <span id="current-year"></span> Bráulio Daniel</p>
     </footer>
 
     <script src="script.js"></script>

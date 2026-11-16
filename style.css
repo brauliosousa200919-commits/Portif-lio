@@ -186,6 +186,50 @@ main > section.section-wrap::before { background: linear-gradient(180deg, transp
 .contact-form { background: color-mix(in srgb, var(--surface) 66%, transparent); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 18px 42px rgba(0, 0, 0, .15); padding: 30px; }
 .footer { background: linear-gradient(180deg, transparent, color-mix(in srgb, var(--surface) 45%, transparent)); position: relative; }
 .footer::before { background: linear-gradient(90deg, transparent, var(--line), transparent); content: ""; height: 1px; left: 35px; position: absolute; right: 35px; top: 0; }
+.topbar::after { background: linear-gradient(90deg, var(--purple), var(--cyan)); bottom: -1px; content: ""; height: 2px; left: 0; position: absolute; transform: scaleX(var(--scroll-progress, 0)); transform-origin: left center; transition: transform .16s ease-out; width: 100%; }
+
+/* Movimento ambiental e entradas escalonadas para dar mais ritmo à navegação. */
+@keyframes grid-drift { from { background-position: 0 0, 0 0; } to { background-position: 35px 35px, 35px 35px; } }
+@keyframes orbit-outer { from { transform: rotate(27deg) skewX(-13deg) rotate(0deg); } to { transform: rotate(27deg) skewX(-13deg) rotate(360deg); } }
+@keyframes orbit-inner { from { transform: rotate(-35deg) skewX(9deg) rotate(0deg); } to { transform: rotate(-35deg) skewX(9deg) rotate(-360deg); } }
+@keyframes initials-float { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-9px) rotate(-6deg); } }
+@keyframes cross-pulse { 0%, 100% { opacity: .4; transform: scale(.8) rotate(0); } 50% { opacity: 1; transform: scale(1.2) rotate(45deg); } }
+@keyframes status-pulse { 0%, 100% { box-shadow: 0 0 12px var(--cyan), 0 0 0 0 color-mix(in srgb, var(--cyan) 0%, transparent); } 50% { box-shadow: 0 0 16px var(--cyan), 0 0 0 5px color-mix(in srgb, var(--cyan) 13%, transparent); } }
+@keyframes card-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes line-draw { from { transform: scaleX(0); transform-origin: left; } to { transform: scaleX(1); transform-origin: left; } }
+
+.visual-grid { animation: grid-drift 12s linear infinite; }
+.visual-orbit--outer { animation: orbit-outer 24s linear infinite; }
+.visual-orbit--inner { animation: orbit-inner 18s linear infinite; }
+.initials { animation: initials-float 5s ease-in-out infinite; }
+.visual-cross--one { animation: cross-pulse 3.2s ease-in-out infinite; }
+.visual-cross--two { animation: cross-pulse 3.2s ease-in-out -1.6s infinite; }
+.availability i { animation: status-pulse 2.4s ease-in-out infinite; }
+.overline__line { transform-origin: left center; }
+.reveal.is-visible .overline__line { animation: line-draw .7s .18s both ease-out; }
+.skills__list.is-visible .skill-card { animation: card-rise .6s both ease-out; }
+.skills__list.is-visible .skill-card:nth-child(2) { animation-delay: .08s; }
+.skills__list.is-visible .skill-card:nth-child(3) { animation-delay: .16s; }
+.skills__list.is-visible .skill-card:nth-child(4) { animation-delay: .24s; }
+.education__timeline.is-visible .education-item { animation: card-rise .6s both ease-out; }
+.education__timeline.is-visible .education-item:nth-child(2) { animation-delay: .1s; }
+.education__timeline.is-visible .education-item:nth-child(3) { animation-delay: .2s; }
+.education__intro.is-visible .course-image { animation: card-rise .6s both ease-out; }
+.education__intro.is-visible .course-image--small { animation-delay: .12s; }
+.contact__links a { transition: color .25s, border-color .25s, padding-left .25s; }
+.contact__links a:hover { padding-left: 8px; }
+.contact__links b { display: inline-block; transition: transform .25s ease; }
+.contact__links a:hover b { transform: translate(3px, -3px); }
+.contact-form input, .contact-form textarea { transition: border-color .25s, box-shadow .25s; }
+.contact-form input:focus, .contact-form textarea:focus { box-shadow: 0 5px 0 -4px var(--cyan); }
+
+@media (prefers-reduced-motion: reduce) {
+  .topbar::after { transition: none; }
+  .visual-grid, .visual-orbit--outer, .visual-orbit--inner, .initials, .visual-cross--one, .visual-cross--two, .availability i,
+  .reveal.is-visible .overline__line, .skills__list.is-visible .skill-card, .education__timeline.is-visible .education-item,
+  .education__intro.is-visible .course-image { animation: none; }
+  .contact__links a, .contact__links b, .contact-form input, .contact-form textarea { transition: none; }
+}
 
 @media (max-width: 900px) {
   .main-navigation { background: var(--surface); }
@@ -226,21 +270,101 @@ main > section.section-wrap::before { background: linear-gradient(180deg, transp
 }
 
 /* Capa exclusiva da nova formacao, mantendo o mesmo tratamento visual da galeria SENAI. */
+/* Mantém o status da formação de Agricultura de Precisão dentro do card e no mesmo padrão dos demais. */
+/* No card de Agricultura de Precisão, status e capa formam uma coluna lateral compacta. */
+.education-item__status {
+  border-radius: 999px;
+  line-height: 1;
+  min-width: 96px;
+  text-align: center;
+  white-space: nowrap;
+}
 .education-item--precision { grid-template-columns: 115px 13px minmax(0, 1fr) 150px; }
-.education-item--precision .education-item__cover { aspect-ratio: 1.45; grid-column: 4; grid-row: 1; margin: 0; min-width: 0; width: 150px; }
-.education-item--precision .education-item__status { bottom: 24px; right: 24px; top: auto; }
+.education-item--precision .education-item__aside {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  grid-column: 4;
+  grid-row: 1;
+  padding-top: 37px;
+}
+.education-item--precision .education-item__cover {
+  aspect-ratio: 1.45;
+  margin: 0;
+  min-width: 0;
+  width: 150px;
+}
+.education-item--precision .education-item__status {
+  min-width: 96px;
+  position: absolute;
+  right: 0;
+  top: 29px;
+}
+.education-item--precision h3 { overflow-wrap: anywhere; }
 
 @media (max-width: 900px) {
   .education-item--precision { grid-template-columns: 94px 12px minmax(0, 1fr) 130px; }
+  .education-item--precision .education-item__aside { grid-column: 4; }
   .education-item--precision .education-item__cover { width: 130px; }
 }
 
 @media (max-width: 680px) {
   .education-item--precision { grid-template-columns: 94px 12px minmax(0, 1fr); }
-  .education-item--precision .education-item__cover { grid-column: 3; grid-row: auto; margin-top: 18px; width: min(100%, 250px); }
-  .education-item--precision .education-item__status { bottom: auto; right: auto; top: auto; }
+  .education-item--precision .education-item__aside {
+    align-items: flex-start;
+    gap: 14px;
+    grid-column: 3;
+    grid-row: auto;
+    margin-top: 18px;
+    padding-top: 0;
+  }
+  .education-item--precision .education-item__cover {
+    width: min(100%, 250px);
+  }
+  .education-item--precision .education-item__status {
+    position: static;
+  }
 }
 
 @media (max-width: 420px) {
   .education-item--precision { grid-template-columns: 77px 10px minmax(0, 1fr); }
+}
+
+/* O hero fica apenas com a apresentação e o visual principal, sem coluna decorativa extra. */
+.hero { grid-template-columns: minmax(300px, .88fr) minmax(390px, 1.12fr); }
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr 1.05fr; }
+}
+
+/* Centraliza os anéis e o monograma no mesmo eixo visual. */
+@keyframes orbit-outer { from { transform: rotate(27deg) skewX(-13deg) rotate(0deg); } to { transform: rotate(27deg) skewX(-13deg) rotate(360deg); } }
+@keyframes orbit-inner { from { transform: rotate(-35deg) skewX(9deg) rotate(0deg); } to { transform: rotate(-35deg) skewX(9deg) rotate(-360deg); } }
+@keyframes initials-float { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-9px) rotate(-6deg); } }
+.visual-orbit--outer { left: 50%; right: auto; top: 50%; translate: -50% -50%; transform: rotate(27deg) skewX(-13deg); }
+.visual-orbit--inner { left: 50%; right: auto; top: 50%; translate: -50% -50%; transform: rotate(-35deg) skewX(9deg); }
+.initials { left: 50%; right: auto; top: 50%; translate: -50% -50%; transform: rotate(-8deg); }
+
+/* Galeria compacta com avanço por botão. */
+@keyframes course-slide-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.course-gallery { display: block; position: relative; }
+.course-gallery .course-image { aspect-ratio: 1.45; display: none; margin: 0; }
+.course-gallery .course-image.is-active { animation: course-slide-in .35s ease both; display: block; }
+.course-gallery__next { align-items: center; background: color-mix(in srgb, var(--surface) 72%, transparent); border: 1px solid color-mix(in srgb, var(--cyan) 42%, transparent); border-radius: 8px; color: var(--cyan); cursor: pointer; display: flex; font-family: var(--mono); font-size: 9px; gap: 12px; justify-content: space-between; margin-top: 10px; padding: 10px 12px; text-transform: uppercase; transition: background .25s, border-color .25s, color .25s, transform .25s; width: 100%; }
+.course-gallery__next:hover { background: var(--cyan); border-color: var(--cyan); color: var(--black); transform: translateY(-2px); }
+.course-gallery__next span { font-size: 15px; line-height: .5; }
+.initials, .visual-orbit--outer, .visual-orbit--inner { transition: translate .55s cubic-bezier(.22, 1, .36, 1); }
+.initials { translate: calc(-50% + var(--parallax-strong-x, 0px)) calc(-50% + var(--parallax-strong-y, 0px)); }
+.visual-orbit--inner { translate: calc(-50% + var(--parallax-inner-x, 0px)) calc(-50% + var(--parallax-inner-y, 0px)); }
+.visual-orbit--outer { translate: calc(-50% + var(--parallax-outer-x, 0px)) calc(-50% + var(--parallax-outer-y, 0px)); }
+.course-image img { transition: transform .7s cubic-bezier(.22, 1, .36, 1); }
+.course-image:hover img { transform: scale(1.05); }
+.skill-card:hover { box-shadow: 0 0 0 1px color-mix(in srgb, var(--cyan) 45%, transparent), 0 22px 45px rgba(0, 0, 0, .21); }
+.button span { display: inline-block; transition: transform .25s ease; }
+.button:hover span { transform: translate(3px, -3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .course-gallery .course-image.is-active { animation: none; }
+  .course-gallery__next, .initials, .visual-orbit--outer, .visual-orbit--inner, .course-image img, .button span { transition: none; }
 }

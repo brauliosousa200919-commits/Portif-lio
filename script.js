@@ -9,6 +9,58 @@ const revealItems = document.querySelectorAll('.reveal');
 const contactForm = document.querySelector('#contact-form');
 const formFeedback = document.querySelector('.form-feedback');
 const currentYear = document.querySelector('#current-year');
+const courseSlides = document.querySelectorAll('.course-gallery .course-image');
+const nextCourseImage = document.querySelector('.course-gallery__next');
+const heroVisual = document.querySelector('.hero__visual');
+let activeCourseSlide = 0;
+
+function updateCourseGallery() {
+  courseSlides.forEach((slide, index) => {
+    const isActive = index === activeCourseSlide;
+    slide.classList.toggle('is-active', isActive);
+    slide.setAttribute('aria-hidden', String(!isActive));
+  });
+}
+
+if (nextCourseImage && courseSlides.length > 1) {
+  nextCourseImage.addEventListener('click', () => {
+    activeCourseSlide = (activeCourseSlide + 1) % courseSlides.length;
+    updateCourseGallery();
+  });
+  updateCourseGallery();
+}
+
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+if (heroVisual && !reducedMotion.matches) {
+  heroVisual.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
+
+    const bounds = heroVisual.getBoundingClientRect();
+    const x = (event.clientX - bounds.left) / bounds.width - 0.5;
+    const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+
+    heroVisual.style.setProperty('--parallax-strong-x', `${(x * 12).toFixed(2)}px`);
+    heroVisual.style.setProperty('--parallax-strong-y', `${(y * 12).toFixed(2)}px`);
+    heroVisual.style.setProperty('--parallax-inner-x', `${(x * 7).toFixed(2)}px`);
+    heroVisual.style.setProperty('--parallax-inner-y', `${(y * 7).toFixed(2)}px`);
+    heroVisual.style.setProperty('--parallax-outer-x', `${(x * 4).toFixed(2)}px`);
+    heroVisual.style.setProperty('--parallax-outer-y', `${(y * 4).toFixed(2)}px`);
+  });
+
+  heroVisual.addEventListener('pointerleave', () => {
+    ['strong', 'inner', 'outer'].forEach((layer) => {
+      heroVisual.style.setProperty(`--parallax-${layer}-x`, '0px');
+      heroVisual.style.setProperty(`--parallax-${layer}-y`, '0px');
+    });
+  });
+}
+
+function updateScrollProgress() {
+  const maxScroll = pageViewport.scrollWidth - pageViewport.clientWidth;
+  const progress = maxScroll > 0 ? pageViewport.scrollLeft / maxScroll : 0;
+  topbar.style.setProperty('--scroll-progress', progress.toFixed(3));
+}
 
 function closeMenu() {
   navigation.classList.remove('is-open');
@@ -49,6 +101,10 @@ document.addEventListener('keydown', (event) => {
 window.addEventListener('scroll', () => {
   topbar.classList.toggle('is-scrolled', window.scrollY > 30);
 }, { passive: true });
+
+pageViewport.addEventListener('scroll', updateScrollProgress, { passive: true });
+window.addEventListener('resize', updateScrollProgress);
+updateScrollProgress();
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
