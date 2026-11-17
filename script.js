@@ -1,7 +1,6 @@
 const topbar = document.querySelector('.topbar');
 const menuButton = document.querySelector('.menu-button');
 const navigation = document.querySelector('.main-navigation');
-const pageViewport = document.querySelector('main');
 const navItems = document.querySelectorAll('.nav-item');
 const sections = document.querySelectorAll('main section[id]');
 const internalLinks = document.querySelectorAll('a[href^="#"]');
@@ -57,9 +56,22 @@ if (heroVisual && !reducedMotion.matches) {
 }
 
 function updateScrollProgress() {
-  const maxScroll = pageViewport.scrollWidth - pageViewport.clientWidth;
-  const progress = maxScroll > 0 ? pageViewport.scrollLeft / maxScroll : 0;
+  const documentHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = documentHeight > 0 ? window.scrollY / documentHeight : 0;
   topbar.style.setProperty('--scroll-progress', progress.toFixed(3));
+}
+
+function updateActiveNav() {
+  const marker = window.scrollY + window.innerHeight * 0.35;
+  let activeSection = sections[0];
+
+  sections.forEach((section) => {
+    if (section.offsetTop <= marker) activeSection = section;
+  });
+
+  navItems.forEach((item) => {
+    item.classList.toggle('is-active', item.getAttribute('href') === `#${activeSection.id}`);
+  });
 }
 
 function closeMenu() {
@@ -67,6 +79,13 @@ function closeMenu() {
   menuButton.classList.remove('is-open');
   menuButton.setAttribute('aria-expanded', 'false');
   menuButton.setAttribute('aria-label', 'Abrir menu');
+}
+
+function scrollToTarget(target, behavior = 'smooth') {
+  const headerOffset = topbar?.offsetHeight ?? 0;
+  const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerOffset - 12);
+
+  window.scrollTo({ top: targetTop, behavior });
 }
 
 menuButton.addEventListener('click', () => {
@@ -84,15 +103,20 @@ function goToSection(event) {
 
   event.preventDefault();
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  pageViewport.scrollTo({
-    left: target.offsetLeft,
-    behavior: prefersReducedMotion ? 'auto' : 'smooth',
-  });
+  scrollToTarget(target, prefersReducedMotion ? 'auto' : 'smooth');
+
+  if (window.location.hash !== targetId) history.pushState(null, '', targetId);
 
   if (event.currentTarget.classList.contains('nav-item')) closeMenu();
 }
 
 internalLinks.forEach((link) => link.addEventListener('click', goToSection));
+
+window.addEventListener('popstate', () => {
+  const targetId = window.location.hash.slice(1);
+  const target = targetId ? document.getElementById(targetId) : null;
+  if (target) scrollToTarget(target, 'auto');
+});
 
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeMenu();
@@ -100,11 +124,13 @@ document.addEventListener('keydown', (event) => {
 
 window.addEventListener('scroll', () => {
   topbar.classList.toggle('is-scrolled', window.scrollY > 30);
+  updateScrollProgress();
+  updateActiveNav();
 }, { passive: true });
 
-pageViewport.addEventListener('scroll', updateScrollProgress, { passive: true });
-window.addEventListener('resize', updateScrollProgress);
+window.addEventListener('resize', updateActiveNav);
 updateScrollProgress();
+updateActiveNav();
 
 const revealObserver = new IntersectionObserver(
   (entries, observer) => {
@@ -119,20 +145,6 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
-
-const activeSectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) return;
-      navItems.forEach((item) => {
-        item.classList.toggle('is-active', item.getAttribute('href') === `#${entry.target.id}`);
-      });
-    });
-  },
-  { root: pageViewport, threshold: 0.55 }
-);
-
-sections.forEach((section) => activeSectionObserver.observe(section));
 
 contactForm.addEventListener('submit', (event) => {
   event.preventDefault();
